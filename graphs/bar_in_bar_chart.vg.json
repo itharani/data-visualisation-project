@@ -1,0 +1,106 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Bar-in-Bar chart showing clients receiving treatment and rehabilitation by case status in Malaysia for the year 2023.",
+    "width": 150,
+    "data": {
+      "values": [
+        {"Status": "Institutional Based Treatment", "Total": 9919, "New Cases": 4748, "Relapse Cases": 5171},
+        {"Status": "Community Based Treatment", "Total": 65372, "New Cases": 44675, "Relapse Cases": 20697}
+      ]
+    },
+   
+    "layer": [
+      {
+        "mark": {
+          "type": "bar",
+          "size": 50
+        },
+        "encoding": {
+          "x": {
+            "field": "Status",
+            "type": "ordinal",
+            "title": "Treatment and Rehabilitation Status",
+            "axis": {"labels": false}
+          },
+          "y": {
+            "field": "Total",
+            "type": "quantitative",
+            "title": "Number of Cases"
+          },
+          "color": {
+            "field": "Status",
+            "type": "nominal",
+            "scale": {
+              "domain": ["Institutional Based Treatment", "Community Based Treatment"],
+              "range": ["grey", "black"]  
+            }, 
+            "legend": null
+        },
+          "tooltip": [
+            {"field": "Status", "type": "nominal"},
+            {"field": "Total", "type": "quantitative"}
+          ]
+        }
+      },
+      {
+        "mark": {
+          "type": "bar",
+          "size": 30 
+        },
+        "encoding": {
+          "x": {
+            "field": "Status",
+            "type": "ordinal",
+            "title": "Treatment and Rehabilitation Status"
+
+          },
+          "y": {
+            "field": "New Cases",
+            "type": "quantitative",
+            "title": "Number of Cases"
+          },
+          "color": {
+            "value": "darkred"  
+          },
+          "tooltip": [
+            {"field": "New Cases", "type": "quantitative"}
+          ],
+          "yOffset": {"value": 0}  
+        }
+      },
+      {
+        "mark": {
+          "type": "bar",
+          "size": 15  
+        },
+        "encoding": {
+          "x": {
+            "field": "Status",
+            "type": "ordinal",
+            "title": "Treatment and Rehabilitation Status"
+          },
+          "y": {
+            "field": "Relapse Cases",
+            "type": "quantitative",
+            "title": "Number of Cases"
+          },
+          "color": {
+            "value": "darkorange"  
+          },
+          "tooltip": [
+            {"field": "Relapse Cases", "type": "quantitative"}
+          ],
+          "yOffset": {"value": 0}  
+        }
+      }
+    ],
+    "config": {
+        "view": {
+        "stroke": "transparent"
+      },
+      "axis": {
+        "grid": false
+      }
+    }
+  }
+  
