@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crime Overview in Malaysia</title>
+
+  <!-- Import Vega & Vega-Lite -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+  <script src="vega_lite_vis.js"></script>
+
+  <!-- Import Pure.css -->
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+    integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <!-- CSS file -->
+  <link rel="stylesheet" type="text/css" href="styles.css" media="all">
+  </head>
+
+  <body>
+  
+    <div class="page">
+  
+      <!-- pure grid group -->
+      <div class="pure-g" style="text-align: center;">
+        <div class="pure-u-1-1">
+            <h1 style="font-weight: bold;">2023 Drug-Related Trends and Issues in Malaysia: An Overview</h1>
+        </div>
+    </div>
+    
+      <!-- end pure grid group -->
+      
+      <!---- first row -->
+      <div class="pure-g">
+        <div class="pure-u-2-3">
+          <div id="map" class="vis-container"></div>
+        </div>
+        <div class="pure-u-1-3">
+          <div class="description description-right">
+            <h2>How Bad Is It?</h2>
+            <p  style="text-align: justify;">The map highlights the regional disparities in drug addiction rates across Malaysia. Perak, Perlis, Terengganu, Kelantan, and Pahang stand out as areas with 
+              particularly high or moderately high prevalence of drug cases. This suggests that these states face significant challenges in combating drug trafficking and addiction due to potential 
+              law enforcement issues and lack of infrastructure to support drug rehabilitation and prevention programs. </p>
+          </div>
+        </div>
+      </div>
+
+      <!---- sec row -->
+     <!-- pure grid group -->
+      <div class="pure-g">
+        <div class="pure-u-2-3">
+          <div id="population_pyramid" class="vis-container"></div>
+        </div>
+        <div class="pure-u-1-3">
+          <div id="type_of_drugs" class="vis-container"></div>
+        </div>
+      </div>
+      <!-- end pure grid group -->
+      
+      <!-- pure grid group -->
+      <div class="pure-g">
+        <div class="pure-u-1-2">
+          <div class="description description-left">
+            <h2>Female vs Male and How old?</h2>
+            <p  style="text-align: justify;">The bar graphs show the number of drug addicts in Malaysia, categorized by gender and age group. 
+              Males have significantly higher rates of drug addiction than females across all age groups. The 40+ age group has the highest number of drug addicts for both genders. It's evident that the number of drug addicts increases with age. 
+              This could be due to factors such as delayed onset of addiction, increased vulnerability and societal changes.</p>
+          </div>
+        </div>
+        <div class="pure-u-1-2">
+          <div class="description description-left">
+            <h2>The 'Hot' substances?</h2>
+            <p  style="text-align: justify;">The chart reveals that amphetamine-type stimulants are the most prevalent drug type 
+              among the 75,291 cases reported, followed by opiates and cannabis. This suggests that factors such as 
+              availability, affordability, and stimulant effects may contribute to their widespread use. Amphetamines, 
+              in particular, pose a significant health risk due to their high 
+              addiction potential and associated adverse effects.</p>
+          </div>
+        </div>
+        
+  
+      </div>
+      <!-- end pure grid group -->
+      
+      <div class="pure-g">
+        <div class="pure-u-1-2">
+          <div class="description description-center">
+            <h2>How do they get caught?</h2>
+            <p  style="text-align: justify;">
+              Drug offenses vary significantly by age group and type. Older individuals (35+) 
+              are more likely involved in possession and positive urine tests, indicating higher 
+              rates of drug consumption, likely due to long-term addiction or dependency. Younger 
+              adults (19–35) are also frequently caught with possession or positive urine tests, 
+              suggesting recreational use or experimentation. Minors (0–18) show minimal offenses, with equal involvement in supply, 
+              possession, and urine tests, indicating early exposure to drug activity.
+               These trends suggest a need for targeted interventions: 
+              prevention and education for younger adults to prevent escalation, while for older individuals,
+               rehabilitation should address both addiction and underlying social issues.
+            </p>
+          </div>
+        </div>
+        <div class="pure-u-1-2">
+          <div id="type_of_drug_offense_by_age" class="vis-container"></div>
+        </div>
+      </div>
+
+         <!-- pure grid group -->
+         <div class="pure-g">
+          <div class="pure-u-1-2">
+            <div class="description description-left">
+              <h2>Skill Issue?</h2>
+              <p  style="text-align: justify;">
+                Drug addiction among individuals in both public and private sectors often stems from high workplace 
+                stress, inadequate mental health support, and the accessibility of substances. Many employees face 
+                significant stress due to demanding workloads, leading them to seek relief through substance use, 
+                while the workplace culture in certain industries may normalize this behavior. Economic disparities and 
+                stigma surrounding addiction further complicate the issue, as those in lower-income jobs may be more 
+                vulnerable due to financial stress and limited access to resources. Without robust policies and support 
+                structures, organizations may inadvertently contribute to the cycle of addiction, underscoring the need 
+                for comprehensive approaches to foster healthier environments.</p>
+            </div>
+          </div>
+          <div class="pure-u-1-2">
+            <div id="type_of_labour" class="vis-container"></div>
+          </div>
+        </div>
+        <!-- end pure grid group -->
+         
+      <!-- pure grid group -->
+      <div class="pure-g">
+        <div class="pure-u-1-2">
+          <div id="radial_plot" class="vis-container"></div>
+        </div>
+        <div class="pure-u-1-2">
+          <div id="bar_in_bar_chart" class="vis-container"></div>
+        </div>
+      </div>
+      <!-- end pure grid group -->
+  
+      <!-- pure grid group -->
+      <div class="pure-g">
+        <div class="pure-u-1-2">
+          <div class="description description-left">
+            <h2>Does education make a difference?</h2>
+            <p  style="text-align: justify;">While workplace stress and inadequate support structures significantly 
+              contribute to drug addiction, educational attainment plays a crucial role in this issue. Data indicates 
+              that individuals with lower levels of education, such as those who have completed only their SPM or PMR, account for over more than 
+              two-thirds of addiction cases, followed by those with only primary school education. This trend suggests that a lack 
+              of education limits access to better job opportunities, financial stability, and awareness of the risks 
+              associated with substance use. Lower educational attainment can hinder understanding of mental health and addiction, 
+              leaving individuals ill-equipped to cope with stressors or seek help. Therefore, addressing educational disparities 
+              and providing targeted support can be vital in breaking the cycle of addiction, as enhancing educational opportunities 
+              and promoting awareness can lead to healthier choices and improved life outcomes for those affected.</p>
+          </div>
+        </div>
+        <div class="pure-u-1-2">
+          <div class="description description-left">
+            <h2>New vs Relapse Cases</h2>
+            <p  style="text-align: justify;">The distinction between new and relapse cases in drug addiction treatment reveals important trends in community-based and institutional approaches. In community-based treatment, out of 65,372 individuals, 44,675 are new cases, indicating approximately 68% are entering treatment for the first time, while in institutional-based treatment, 4,748 out of 9,919 individuals are new cases, representing about 48%. Community-based programs typically emphasize accessibility and holistic approaches, making them more approachable for individuals seeking help, whereas institutional treatment often focuses on medical stabilization in a controlled environment, which may deter individuals from seeking help until their addiction becomes severe. Relapse rates can be high in both settings due to a lack of aftercare or triggering environments upon returning to daily life. Addressing these challenges, such as improving access to ongoing support, can enhance recovery outcomes and reduce relapse rates</p>
+          </div>
+        </div>
+  
+      </div>
+      <!-- end pure grid group -->
+  
+      <div class="pure-g">
+        <div class="pure-u-1-1 small-font">
+          <p style="text-align: center;">This visualisation is created by <a href="https://fit3179.github.io/Vega-Lite/" target="_blank">Tharani Prathaban</a>. The datasource is <a href="#" target=" _blank">some data repository online</href>.</p>
+        </div>
+      </div>
+  
+  
+    </div> <!-- end page -->
+  </body>
+  
+  </html>
