@@ -1,0 +1,63 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Heatmap showing Age Group vs. Type of Drug with color representing number of cases or arrests.",
+    "width": 300,
+    "height": 130,
+    "data": {
+      "values": [
+        {"Age Group": "0-13", "Type": "Supply", "Number": 9},
+        {"Age Group": "14–18", "Type": "Supply", "Number": 306},
+        {"Age Group": "19–24", "Type": "Supply", "Number": 2553},
+        {"Age Group": "25–29", "Type": "Supply", "Number": 3884},
+        {"Age Group": "30–34", "Type": "Supply", "Number": 4307},
+        {"Age Group": "35–40", "Type": "Supply", "Number": 5606},
+        {"Age Group": "≥ 41", "Type": "Supply", "Number": 10052},
+        {"Age Group": "0-13", "Type": "Possession", "Number": 12},
+        {"Age Group": "14–18", "Type": "Possession", "Number": 1064},
+        {"Age Group": "19–24", "Type": "Possession", "Number": 9255},
+        {"Age Group": "25–29", "Type": "Possession", "Number": 11885},
+        {"Age Group": "30–34", "Type": "Possession", "Number": 11406},
+        {"Age Group": "35–40", "Type": "Possession", "Number": 13669},
+        {"Age Group": "≥ 41", "Type": "Possession", "Number": 20460},
+        {"Age Group": "0-13", "Type": "Positive Urine", "Number": 7},
+        {"Age Group": "14–18", "Type": "Positive Urine", "Number": 1340},
+        {"Age Group": "19–24", "Type": "Positive Urine", "Number": 10829},
+        {"Age Group": "25–29", "Type": "Positive Urine", "Number": 10739},
+        {"Age Group": "30–34", "Type": "Positive Urine", "Number": 15481},
+        {"Age Group": "35–40", "Type": "Positive Urine", "Number": 18164},
+        {"Age Group": "≥ 41", "Type": "Positive Urine", "Number": 24112}
+      ]
+    },
+    "mark": "rect",
+    "encoding": {
+      "x": {
+        "field": "Age Group",
+        "type": "nominal",
+        "title": "Age Group",
+        "axis": {"labelAngle": 0}
+      },
+      "y": {
+        "field": "Type",
+        "type": "nominal",
+        "title": "          "
+      },
+      "color": {
+        "field": "Number",
+        "type": "quantitative",
+        "title": "Number of cases and arrests",
+        "scale": {
+          "scheme": "orangered"
+        },  
+        "legend": {
+          "title": "Number of cases and arrests",
+          "orient": "top"
+      }
+    },
+      "tooltip": [
+        {"field": "Age Group", "type": "nominal", "title": "Age Group"},
+        {"field": "Type", "type": "nominal", "title": "Type of Drug"},
+        {"field": "Number", "type": "quantitative", "title": "Number"}
+      ]
+    }
+  }
+  
