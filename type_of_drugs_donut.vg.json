@@ -1,0 +1,81 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "height": 200,
+  "width": 200,
+  "description": "A donut chart showing the proportion of different types of drug addictions in 2023.",
+  "data": {
+    "values": [
+      {"category": "Amphetamine", "value": 58123},
+      {"category": "Opiates", "value": 14885},
+      {"category": "Cannabis", "value": 1944},
+      {"category": "Psychotropic", "value": 76},
+      {"category": "Others", "value": 263}
+    ]
+  },
+  "transform": [
+    {
+      "window": [{"op": "sum", "field": "value", "as": "TotalValue"}],
+      "frame": [null, null]
+    },
+    {
+      "calculate": "datum.value / datum.TotalValue * 100",
+      "as": "Percentage"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {"type": "arc", "innerRadius": 50, "outerRadius": 100},
+      "encoding": {
+        "theta": {
+          "field": "value",
+          "type": "quantitative",
+          "stack": true
+        },
+        "color": {
+          "field": "category",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Amphetamine", 
+              "Opiates", 
+              "Cannabis", 
+              "Psychotropic", 
+              "Others"
+            ],
+            "scheme": "darkred"
+          },
+          "legend": {
+            "title": "Drug Type",
+            "titleFontSize": 9,
+            "labelFontSize": 8,
+            "offset": 0
+          }
+        },
+        "tooltip": [
+          {"field": "category", "type": "nominal", "title": "Drug Type"},
+          {"field": "value", "type": "quantitative", "title": "Number of Cases"},
+          {"field": "Percentage", "type": "quantitative", "title": "Percentage", "format": ".1f"}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "fontSize": 30,
+        "fontWeight": "bold",
+        "color": "black"
+      },
+      "encoding": {
+        "text": {"field": "TotalValue", "type": "quantitative"},
+        "tooltip": [
+          {"field": "TotalValue", "type": "quantitative", "title": "Total Number of Cases"}
+        ]
+      }
+      
+    }
+  ],
+  "config": {
+    "background": "transparent",
+    "axis": {"grid": false}
+  }
+}

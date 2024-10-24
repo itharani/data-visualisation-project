@@ -1,0 +1,107 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A pyramid chart showing drug addicts by age group and gender.",
+  "data": {
+    "values": [
+      {"age": "0 - 13", "gender": "Female", "addicts": 7},
+      {"age": "0 - 13", "gender": "Male", "addicts": 21},
+      {"age": "14 - 18", "gender": "Female", "addicts": 310},
+      {"age": "14 - 18", "gender": "Male", "addicts": 2400},
+      {"age": "19 - 24", "gender": "Female", "addicts": 1506},
+      {"age": "19 - 24", "gender": "Male", "addicts": 21131},
+      {"age": "25 - 29", "gender": "Female", "addicts": 1755},
+      {"age": "25 - 29", "gender": "Male", "addicts": 28753},
+      {"age": "30 - 34", "gender": "Female", "addicts": 1838},
+      {"age": "30 - 34", "gender": "Male", "addicts": 29356},
+      {"age": "35 - 40", "gender": "Female", "addicts": 1909},
+      {"age": "35 - 40", "gender": "Male", "addicts": 35530},
+      {"age": "≥ 41", "gender": "Female", "addicts": 1841},
+      {"age": "≥ 41", "gender": "Male", "addicts": 52783}
+    ]
+  },
+  "spacing":0,
+  "hconcat": [{
+    "transform": [{
+      "filter": {"field": "gender", "equal": "Female"}
+    }],
+    "title": "Female",
+    "mark": "bar",
+    "encoding": {
+      "y": {
+        "field": "age",
+        "type": "ordinal",
+        "axis": null,
+        "sort": "descending"
+      },
+      "x": {
+        "aggregate": "sum", 
+        "field": "addicts",
+        "title": "Number of Drug Addicts",
+        "axis": {"format": "s"},
+        "sort": "descending",
+        "scale": {"domain": [0, 53000]}
+      },
+      "color": {
+        "field": "gender",
+        "scale": {"range": ["grey", "darkred"]},
+        "legend": null
+      },
+      "tooltip": [
+        {"field": "age", "type": "ordinal", "title": "Age Group"},
+        {"field": "addicts", "type": "quantitative", "title": "Number of Drug Addicts"}
+      ]
+    }
+  }, {
+    "width": 95,
+    "view": {"stroke": "white"},
+    "mark": {
+      "type": "text",
+      "align": "center"
+    },
+    "encoding": {
+      "y": {
+        "field": "age", 
+        "type": "ordinal", 
+        "axis": null, 
+        "sort": "descending"
+      },
+      "text": {
+        "field": "age",  
+        "type": "ordinal"
+      }
+    }
+  }, {
+    "transform": [{
+      "filter": {"field": "gender", "equal": "Male"}
+    }],
+    "title": "Male",
+    "mark": "bar",
+    "encoding": {
+      "y": {
+        "field": "age",
+        "type": "ordinal",
+        "axis": null,
+        "sort": "descending"
+      },
+      "x": {
+        "aggregate": "sum", 
+        "field": "addicts",
+        "title": "Number of Drug Addicts",
+        "axis": {"format": "s"},
+        "scale": {"domain": [0, 53000]}
+      },
+      "color": {
+        "field": "gender",
+        "legend": null
+      },
+      "tooltip": [
+        {"field": "age", "type": "ordinal", "title": "Age Group"},
+        {"field": "addicts", "type": "quantitative", "title": "Number of Drug Addicts"}
+      ]
+    }
+  }],
+  "config": {
+    "background": "transparent",
+    "axis": {"grid": false}
+  }
+}

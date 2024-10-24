@@ -1,0 +1,64 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "values": [
+        {"Category": "Private Sector", "Count": 11054},
+        {"Category": "Public Sector", "Count": 6250},
+        {"Category": "Self-employed", "Count": 1689},
+        {"Category": "Casual/Temporary Worker", "Count": 1980},
+        {"Category": "Student", "Count": 793},
+        {"Category": "Retired", "Count": 165},
+        {"Category": "Not in the Labor Force", "Count": 79}
+      ]
+    },
+    "mark": "bar",
+    "encoding": {
+      "x": {
+        "field": "Category",
+        "type": "ordinal",
+        "axis": null
+      },
+      "y": {
+        "field": "Count",
+        "type": "quantitative",
+        "axis": {"title": "Number of Cases Recorded"}
+      },
+      "color": {
+        "field": "Category",
+        "type": "nominal",
+        "scale": {
+          "domain": [
+            "Private Sector", 
+            "Public Sector", 
+            "Self-employed", 
+            "Casual/Temporary Worker", 
+            "Student", 
+            "Retired", 
+            "Not in the Labor Force"
+          ],
+          "scheme": "darkred"
+        },
+        "legend": {
+          "title": "Type of Labor Force",
+          "offset": -100    
+        }
+      },
+    "tooltip": {
+      "field": "Count",
+      "type": "quantitative",
+      "title": "Number of Cases Recorded"
+    }
+    },
+    "width": 300,
+    "height": 200,
+    "config": {
+      "view": {
+        "stroke": "transparent",
+        "fill": "transparent"
+      },
+      "axis": {
+        "grid": false
+      }
+    }
+  }
+  
